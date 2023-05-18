@@ -6,15 +6,17 @@ include_once 'vendor/sonata-project/google-authenticator/src/GoogleQrUrl.php';
  
 $g = new \Google\Authenticator\GoogleAuthenticator();
 $secret = 'XVQ2UIGO75XRUKJO';
-if(isset($_POST['token'])){
+
+if(isset($_POST['token'])) {
 	$token = $_POST['token'];
-if($g->checkCode($secret, $token)){
-	echo 'Autorizado!';
-}
-else{
-	echo 'Código incorreto ou expirado!';
-}
-die();
+  
+  if($g->checkCode($secret, $token)) {
+    echo 'Autorizado!';
+  }
+  else {
+    echo 'Código incorreto ou expirado!';
+  }
+  die();
 }
 
 ?>
