@@ -18,14 +18,19 @@ if(isset($_POST['token'])) {
   }
   die();
 }
-
 ?>
-<!DOCTYPE html>
+
+<!DOCTYPE html> 
 <html>
   <head>
     <meta charset="utf-8">
     <title>google auth</title>
   </head>
   <body>
+    <h1>2º fator</h1>
+    <form method="post">
+      <input type="text" name="token"/>
+      <button type="submit">Autenticar</button>
+    </form>
 </body>
 </html>
