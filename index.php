@@ -29,10 +29,10 @@ $secret = 'XVQ2UIGO75XRUKJO';
           <input type="password" name="password" required="">
           <label>Senha</label>
         </div>
-        <div class="user-box">
+        <!-- <div class="user-box">
           <input type="text" name="otp" required="">
           <label>Código OTP</label>
-        </div>
+        </div> -->
         <img src="<?php echo $g->getUrl('otpProject1010', 'otpProject1010.com', $secret) ?>"/>
         <input type="submit" name="" value="token">
       </form>

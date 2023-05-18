@@ -29,7 +29,7 @@ if(isset($_POST['token'])) {
   <body>
     <h1>2º fator</h1>
     <form method="post">
-      <input type="text" name="token"/>
+      <input type="text" name="entrar"/>
       <button type="submit">Autenticar</button>
     </form>
 </body>
