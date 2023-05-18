@@ -5,8 +5,19 @@ include_once 'vendor/sonata-project/google-authenticator/src/GoogleAuthenticator
 include_once 'vendor/sonata-project/google-authenticator/src/GoogleQrUrl.php';
  
 $g = new \Google\Authenticator\GoogleAuthenticator();
-
 $secret = 'XVQ2UIGO75XRUKJO';
+
+if(isset($_POST['token'])) {
+	$token = $_POST['token'];
+  
+  if($g->checkCode($secret, $token)) {
+    echo 'Autorizado!';
+  }
+  else {
+    echo 'Código incorreto ou expirado!';
+  }
+  die();
+}
 ?>
 
 <!DOCTYPE html>
@@ -17,7 +28,7 @@ $secret = 'XVQ2UIGO75XRUKJO';
     <link rel="stylesheet" type="text/css" href="style.css">
   </head>
   <body>
-<!-- 
+
     <div class="login-box">
       <h2>Autenticação em Dois Fatores</h2>
       <form action="auth" method="post">
@@ -32,9 +43,9 @@ $secret = 'XVQ2UIGO75XRUKJO';
         <div class="user-box">
           <input type="text" name="otp" required="">
           <label>Código OTP</label>
-        </div> -->
+        </div>
         <img src="<?php echo $g->getUrl('otpProject1010', 'otpProject1010.com', $secret) ?>" />
-        <!-- <input type="submit" name="" value="token"> -->
+        <input type="submit" name="token" value="token">
       </form>
     </div>
   </body>
