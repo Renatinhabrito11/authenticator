@@ -33,7 +33,7 @@ $secret = 'XVQ2UIGO75XRUKJO';
           <img src="<?php echo $g->getUrl('otpProject1010', 'otpProject1010.com', $secret) ?>">
           <label>Código OTP</label>
         </div>
-        <input type="submit" name="" value="Entrar">
+        <input type="submit" name="" value="token">
       </form>
     </div>
   </body>
