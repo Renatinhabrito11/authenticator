@@ -28,23 +28,109 @@ if(isset($_POST['token'])) {
     <title>Página de Login</title>
     <link rel="stylesheet" type="text/css" href="style.css">
   </head>
+  <style>
+    body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  background: #34495e;
+}
+
+.login-box {
+  width: 280px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #fff;
+}
+
+.login-box h2 {
+  text-align: center;
+  font-size: 22px;
+  margin-bottom: 20px;
+}
+
+.login-box input[type="text"],
+.login-box input[type="password"] {
+  border: none;
+  border-bottom: 1px solid #fff;
+  background: transparent;
+  outline: none;
+  height: 40px;
+  color: #fff;
+  font-size: 16px;
+}
+
+.login-box input[type="text"]::placeholder,
+.login-box input[type="password"]::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.login-box input[type="submit"] {
+  border: none;
+  outline: none;
+  height: 40px;
+  background: #1c8adb;
+  color: #fff;
+  font-size: 18px;
+  border-radius: 20px;
+}
+
+.login-box input[type="submit"]:hover {
+  cursor: pointer;
+  background: #39dc79;
+  color: #000;
+}
+
+.login-box label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 10px 0;
+  font-size: 16px;
+  pointer-events: none;
+  transition: 0.5s;
+}
+
+.user-box {
+  position: relative;
+  margin-bottom: 30px;
+}
+
+.user-box input[type="text"]:focus ~ label,
+.user-box input[type="text"]:valid ~ label,
+.user-box input[type="password"]:focus ~ label,
+.user-box input[type="password"]:valid ~ label,
+.user-box input[type="otp"]:focus ~ label,
+.user-box input[type="otp"]:valid ~ label {
+  top: -20px;
+  font-size: 12px;
+  color: #1c8adb;
+}
+
+.user-box input[type="text"]:focus,
+.user-box input[type="password"]:focus,
+.user-box input
+  </style>
+  
   <body>
       <h2>Autenticação em Dois Fatores</h2>
-          <div class="user-box">
-            <input type="text" name="username" required="">
-            <label>Em-mail</Em></label>
-          </div>
-          <div class="user-box">
-            <input type="password" name="password" required="">
-            <label>Senha</label>
-          </div>
-        <img src="<?php echo $g->getUrl('otpProject1010', 'otpProject1010.com', $secret) ?>" />
-        <input type="submit" name="token" value="token">
-        <h1>2º fator</h1>
-        <form method="post">
-          <input type="text" name="token"/>
-          <button type="submit">Autenticar</button>
-        </form>
+      <div class="user-box">
+        <input type="email" name="email" required="">
+        <label>E-mail</Em></label>
+      </div>
+      <div class="user-box">
+        <input type="password" name="password" required="">
+        <label>Senha</label>
+      </div>
+      <img src="<?php echo $g->getUrl('otpProject1010', 'otpProject1010.com', $secret) ?>" />
+      <input type="submit" name="token" value="token">
+      <h1>2º fator</h1>
+      <form method="post">
+        <input type="text" name="token"/>
+        <button type="submit">Autenticar</button>
+      </form>
     </div>
   </body>
 </html>
