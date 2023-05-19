@@ -29,32 +29,17 @@ if(isset($_POST['token'])) {
     <link rel="stylesheet" type="text/css" href="style.css">
   </head>
   <body>
-    <!-- <div class="login-box"> -->
       <h2>Autenticação em Dois Fatores</h2>
-      <!-- <form action="auth" method="post">
         <div class="user-box">
-          <input type="text" name="username" required="">
-          <label>Nome de Usuário</label>
-        </div>
-        <div class="user-box">
-          <input type="password" name="password" required="">
-          <label>Senha</label>
-        </div>
-        <div class="user-box">
-          <input type="text" name="otp" required="">
-          <label>Código OTP</label>
-        </div> -->
-        <img src="<?php echo $g->getUrl('otpProject1010', 'otpProject1010.com', $secret) ?>" />
-        <!-- <input type="submit" name="token" value="token"> -->
-        <div class="user-box">
-          <label>Nome de Usuário/E-mail</label>
+          <label>E-mail</label>
           <input type="text" name="username" required="">  
         </div>
         <div class="user-box">
           <label>Senha</label>
           <input type="password" name="password" required="">
         </div>
-        <h1>2º fator</h1>
+        <h1>Token de 2º fator</h1>
+        <img src="<?php echo $g->getUrl('otpProject1010', 'otpProject1010.com', $secret) ?>" />
         <form action="auth" method="post">
           <input type="text" name="token"/>
           <button type="submit">Autenticar</button>
