@@ -45,14 +45,14 @@ if(isset($_POST['token'])) {
           <label>Código OTP</label>
         </div> -->
         <img src="<?php echo $g->getUrl('otpProject1010', 'otpProject1010.com', $secret) ?>" />
-        <input type="submit" name="token" value="token">
+        <!-- <input type="submit" name="token" value="token"> -->
         <div class="user-box">
-          <input type="text" name="username" required="">
-          <label>Nome de Usuário</label>
+          <label>Nome de Usuário/E-mail</label>
+          <input type="text" name="username" required="">  
         </div>
         <div class="user-box">
-          <input type="password" name="password" required="">
           <label>Senha</label>
+          <input type="password" name="password" required="">
         </div>
         <h1>2º fator</h1>
         <form action="auth" method="post">
