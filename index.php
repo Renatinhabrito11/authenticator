@@ -26,9 +26,9 @@ if(isset($_POST['token'])) {
   <head>
     <meta charset="utf-8">
     <title>Página de Login</title>
-    
+    <link rel="stylesheet" type="text/css" href="style.css">
   </head>
-  <style type="text/css">
+  <style>
     body {
   margin: 0;
   padding: 0;
