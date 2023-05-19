@@ -29,7 +29,6 @@ if(isset($_POST['token'])) {
     <link rel="stylesheet" type="text/css" href="style.css">
   </head>
   <body>
-
       <h2>Autenticação em Dois Fatores</h2>
         <form action="auth" method="post">
           <div class="user-box">
@@ -40,11 +39,10 @@ if(isset($_POST['token'])) {
             <input type="password" name="password" required="">
             <label>Senha</label>
           </div>
-        </form>
-        <img src="<?php echo $g->getUrl('otpProject1010', 'otpProject1010.com', $secret) ?>" />
-        <input type="submit" name="token" value="token">
-        <h1>2º fator</h1>
-        <form method="post">
+          <img src="<?php echo $g->getUrl('otpProject1010', 'otpProject1010.com', $secret) ?>" />
+          <input type="submit" name="token" value="token">
+          <h1>2º fator</h1>
+        <!-- <form method="post"> -->
           <input type="text" name="token"/>
           <button type="submit">Autenticar</button>
         </form>
