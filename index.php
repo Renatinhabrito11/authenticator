@@ -51,7 +51,7 @@ if(isset($_POST['token'])) {
   margin-bottom: 20px;
 }
 
-.login-box input[type="text"],
+.login-box input[type="email"],
 .login-box input[type="password"] {
   border: none;
   border-bottom: 1px solid #fff;
@@ -62,7 +62,7 @@ if(isset($_POST['token'])) {
   font-size: 16px;
 }
 
-.login-box input[type="text"]::placeholder,
+.login-box input[type="email"]::placeholder,
 .login-box input[type="password"]::placeholder {
   color: rgba(255, 255, 255, 0.5);
 }
@@ -98,22 +98,16 @@ if(isset($_POST['token'])) {
   margin-bottom: 30px;
 }
 
-.user-box input[type="text"]:focus ~ label,
-.user-box input[type="text"]:valid ~ label,
+.user-box input[type="email"]:focus ~ label,
+.user-box input[type="email"]:valid ~ label,
 .user-box input[type="password"]:focus ~ label,
-.user-box input[type="password"]:valid ~ label,
-.user-box input[type="otp"]:focus ~ label,
-.user-box input[type="otp"]:valid ~ label {
-  top: -20px;
-  font-size: 12px;
-  color: #1c8adb;
-}
+.user-box input[type="password"]:valid ~ label
 
-.user-box input[type="text"]:focus,
+.user-box input[type="email"]:focus,
 .user-box input[type="password"]:focus,
 .user-box input
   </style>
-  
+
   <body>
       <h2>Autenticação em Dois Fatores</h2>
       <div class="user-box">
