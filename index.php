@@ -8,8 +8,8 @@ $g = new \Google\Authenticator\GoogleAuthenticator();
 $secret = 'XVQ2UIGO75XRUKJO';
 
 if(isset($_POST['token'])) {
-	$token = $_POST['token'];
-  
+  $token = $_POST['token'];
+
   if($g->checkCode($secret, $token)) {
     echo 'Autorizado!';
   }
@@ -18,6 +18,7 @@ if(isset($_POST['token'])) {
   }
   die();
 }
+
 ?>
 
 <!DOCTYPE html>
@@ -44,7 +45,11 @@ if(isset($_POST['token'])) {
           <label>Código OTP</label>
         </div> -->
         <img src="<?php echo $g->getUrl('otpProject1010', 'otpProject1010.com', $secret) ?>" />
-        <!-- <input type="submit" name="token" value="token"> -->
+        <input type="submit" name="token" value="token">
+        <h1>2º fator</h1>
+        <form method="post">
+          <input type="text" name="token"/>
+          <button type="submit">Autenticar</button>
       </form>
     </div>
   </body>
