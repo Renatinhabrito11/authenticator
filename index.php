@@ -33,16 +33,17 @@ if(isset($_POST['token'])) {
         <form action="auth" method="post">
           <div class="user-box">
             <input type="text" name="username" required="">
-            <label>Nome de Usuário</label>
+            <label>Em-mail</Em></label>
           </div>
           <div class="user-box">
             <input type="password" name="password" required="">
             <label>Senha</label>
           </div>
-          <img src="<?php echo $g->getUrl('otpProject1010', 'otpProject1010.com', $secret) ?>" />
-          <input type="submit" name="token" value="token">
-          <h1>2º fator</h1>
-        <!-- <form method="post"> -->
+        </form>
+        <img src="<?php echo $g->getUrl('otpProject1010', 'otpProject1010.com', $secret) ?>" />
+        <input type="submit" name="token" value="token">
+        <h1>2º fator</h1>
+        <form method="post">
           <input type="text" name="token"/>
           <button type="submit">Autenticar</button>
         </form>
