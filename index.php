@@ -44,19 +44,8 @@ if(isset($_POST['token'])) {
           <input type="text" name="otp" required="">
           <label>Código OTP</label>
         </div> -->
-        <form action="auth" method="post">
-          <div class="user-box">
-            <label>Nome de Usuário</label>
-            <input type="text" name="username" required="">  
-          </div>
-          <div class="user-box"><label>Senha</label>
-            <input type="password" name="password" required="">
-          </div>
-          <h1>2º fator</h1>
-          <img src="<?php echo $g->getUrl('otpProject1010', 'otpProject1010.com', $secret) ?>" />
-          <input type="submit" name="token" value="token">
-          <input type="text" name="token"/>
-          <button type="submit">Autenticar</button>
+        <img src="<?php echo $g->getUrl('otpProject1010', 'otpProject1010.com', $secret) ?>" />
+        <input type="submit" name="token" value="token">
       </form>
     </div>
   </body>
