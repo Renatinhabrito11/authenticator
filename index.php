@@ -33,7 +33,7 @@ if(isset($_POST['token'])) {
         <form action="auth" method="post">
           <div class="user-box">
             <input type="text" name="username" required="">
-            <label>Em-mail</Em></label>
+            <label>E-mail</label>
           </div>
           <div class="user-box">
             <input type="password" name="password" required="">
