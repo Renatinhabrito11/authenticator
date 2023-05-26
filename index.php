@@ -19,6 +19,22 @@ if(isset($_POST['token'])) {
   die();
 }
 
+$captcha = isset($_POST['g-recaptcha-response']) ? $_POST['g-recaptcha-response'] : null;
+ 
+if(!is_null($captcha)){
+	$res = json_decode(file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=6LdFYiEmAAAAACRpGtr1qmjaysyATvEDzNVCjKj3&response=".$captcha."&remoteip=".$_SERVER['REMOTE_ADDR']));
+	if($res->success === true){
+		//CAPTCHA validado!!!
+		echo 'Tudo certo =)';
+	}
+	else{
+		echo 'Erro ao validar o captcha!!!';
+	}
+}
+else{
+	echo 'Captcha não preenchido!';
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -27,6 +43,7 @@ if(isset($_POST['token'])) {
     <meta charset="utf-8">
     <title>Página de Login</title>
     <link rel="stylesheet" type="text/css" href="style.css">
+    <script src='https://www.google.com/recaptcha/api.js'></script>
   </head>
   <style>
     body {
@@ -121,8 +138,9 @@ if(isset($_POST['token'])) {
       <img src="<?php echo $g->getUrl('otpProject1010', 'otpProject1010.com', $secret) ?>" />
       <input type="submit" name="token" value="token">
       <h1>2º fator</h1>
-      <form method="post">
+      <form method="post" action="index.php">
         <input type="text" name="token"/>
+        <div class="g-recaptcha" data-sitekey="6LdFYiEmAAAAALmXY6mKAC32boLktzfDswpURQko"></div>
         <button type="submit">Autenticar</button>
       </form>
     </div>
