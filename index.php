@@ -23,7 +23,7 @@ if(isset($_POST['token'])) {
 $captcha = isset($_POST['g-recaptcha-response']) ? $_POST['g-recaptcha-response'] : null;
  
 if(!is_null($captcha)){
-	$res = json_decode(file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=6LdFYiEmAAAAACRpGtr1qmjaysyATvEDzNVCjKj3&response=".$captcha."&remoteip=".$_SERVER['REMOTE_ADDR']));
+	$res = json_decode(file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=6LcH5j4mAAAAABLqX8Yv1miGGfWUEQnYsncuV_M2&response=".$captcha."&remoteip=".$_SERVER['REMOTE_ADDR']));
 	if($res->success === true){
 		//CAPTCHA validado!!!
 		echo 'Tudo certo =)';
@@ -141,7 +141,7 @@ else{
       <h1>2º fator</h1>
       <form method="post" action="index.php">
         <input type="text" name="token"/>
-        <div class="g-recaptcha" data-sitekey="6LdFYiEmAAAAALmXY6mKAC32boLktzfDswpURQko"></div>
+        <div class="g-recaptcha" data-sitekey="6LcH5j4mAAAAAAXs-LprduzUT09t4FdV70PNXv9F"></div>
         <button type="submit">Autenticar</button>
       </form>
     </div>
