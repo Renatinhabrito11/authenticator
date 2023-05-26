@@ -14,6 +14,7 @@ if(isset($_POST['token'])) {
     echo 'Autorizado!';
   }
   else {
+    //
     echo 'Código incorreto ou expirado!';
   }
   die();
