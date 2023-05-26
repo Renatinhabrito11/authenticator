@@ -17,7 +17,7 @@ if(isset($_POST['token'])) {
     //
     echo 'Código incorreto ou expirado!';
   }
-  // die();
+  die();
 }
 
 $captcha = isset($_POST['g-recaptcha-response']) ? $_POST['g-recaptcha-response'] : null;
@@ -35,8 +35,6 @@ if(!is_null($captcha)){
 else{
 	echo 'Captcha não preenchido!';
 }
-
-die();
 
 ?>
 
