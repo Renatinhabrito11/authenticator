@@ -6,22 +6,8 @@ include_once 'vendor/sonata-project/google-authenticator/src/GoogleQrUrl.php';
  
 $g = new \Google\Authenticator\GoogleAuthenticator();
 $secret = 'XVQ2UIGO75XRUKJO';
-
-if(isset($_POST['token'])) {
-  $token = $_POST['token'];
-
-  if($g->checkCode($secret, $token)) {
-    echo 'Autorizado!';
-  }
-  else {
-    //
-    echo 'Código incorreto ou expirado!';
-  }
-  die();
-}
-
 $captcha = isset($_POST['g-recaptcha-response']) ? $_POST['g-recaptcha-response'] : null;
- 
+
 if(!is_null($captcha)){
 	$res = json_decode(file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=6LcH5j4mAAAAABLqX8Yv1miGGfWUEQnYsncuV_M2&response=".$captcha."&remoteip=".$_SERVER['REMOTE_ADDR']));
 	if($res->success === true){
@@ -34,6 +20,19 @@ if(!is_null($captcha)){
 }
 else{
 	echo 'Captcha não preenchido!';
+}
+
+if(isset($_POST['token'])) {
+  $token = $_POST['token'];
+
+  if($g->checkCode($secret, $token)) {
+    echo 'Autorizado!';
+  }
+  else {
+    //
+    echo 'Código incorreto ou expirado!';
+  }
+  die();
 }
 
 ?>
