@@ -8,32 +8,39 @@ $g = new \Google\Authenticator\GoogleAuthenticator();
 $secret = 'XVQ2UIGO75XRUKJO';
 $captcha = isset($_POST['g-recaptcha-response']) ? $_POST['g-recaptcha-response'] : null;
 
-if(!is_null($captcha)){
+if(!is_null($captcha) and isset($_POST['token'])){
 	$res = json_decode(file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=6LcH5j4mAAAAABLqX8Yv1miGGfWUEQnYsncuV_M2&response=".$captcha."&remoteip=".$_SERVER['REMOTE_ADDR']));
-	if($res->success === true){
+  $token = $_POST['token'];
+
+	if($res->success === true and $g->checkCode($secret, $token)){
 		//CAPTCHA validado!!!
 		echo 'Tudo certo =)';
 	}
 	else{
 		echo 'Erro ao validar o captcha!!!';
+    echo 'Código incorreto ou expirado!';
 	}
 }
 else{
 	echo 'Captcha não preenchido!';
+  echo 'Código incorreto ou expirado!';
 }
 
-if(isset($_POST['token'])) {
-  $token = $_POST['token'];
+die();
 
-  if($g->checkCode($secret, $token)) {
-    echo 'Autorizado!';
-  }
-  else {
-    //
-    echo 'Código incorreto ou expirado!';
-  }
-  die();
-}
+// // token
+// if(isset($_POST['token'])) {
+//   $token = $_POST['token'];
+
+//   if($g->checkCode($secret, $token)) {
+//     echo 'Autorizado!';
+//   }
+//   else {
+//     //
+//     echo 'Código incorreto ou expirado!';
+//   }
+//   die();
+// }
 
 ?>
 
