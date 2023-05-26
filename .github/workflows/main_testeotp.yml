@@ -56,5 +56,5 @@ jobs:
         with:
           app-name: 'testeOTP'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_A7510E25101E4DFE9311B253FF77FB64 }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_7DAB61882A5C44B09D18EC67D97C22C1 }}
           package: .
